@@ -215,9 +215,9 @@ O front-end (site) está hospedado no **Netlify**, uma das plataformas mais mode
 
 O **Supabase** atua como nosso *Backend as a Service*. Ele fornece toda a infraestrutura de banco de dados PostgreSQL na nuvem, além do sistema de autenticação. Ele conta com backups automáticos e garante que os dados dos usuários, atividades e vouchers estejam sempre seguros e disponíveis.
 
-### 🔮 Render (Futuro - Hospedagem da API)
+### 🔮 Render (Futuro)
 
-O **Render** será o próximo passo para a infraestrutura do projeto. A API em Python (FastAPI) já está pronta e será hospedada nesta plataforma, permitindo que a documentação interativa (Swagger UI) fique exposta publicamente para consumo e integração de qualquer outra aplicação cliente.
+O Render hospedará a API em Python (FastAPI). Com isso, a documentação interativa (Swagger UI) ficará exposta publicamente para integração com qualquer aplicação cliente.
 ---
 
 ## Como Executar (Local)
