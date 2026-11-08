@@ -82,6 +82,7 @@ ecofuturo/
 ├── tests/                      → Testes unitários (Vitest + jsdom)
 ├── EcoFuturoEsuda.html         → Backup do monolítico original (não usado)
 └── README.md                   → Este arquivo
+
 ## Tecnologias Utilizadas
 - HTML5 — Estrutura da página (SPA com páginas carregadas via fetch)
 - TailwindCSS (CDN) — Estilização utilitária
@@ -93,9 +94,7 @@ ecofuturo/
 - Vitest + jsdom — Testes unitários
 - Python + FastAPI — Back-end e regras de negócio
 
-
 ## Funcionalidades
-
 ### 👤 Para Usuários Comuns
 | Funcionalidade | Descrição |
 |---|---|
