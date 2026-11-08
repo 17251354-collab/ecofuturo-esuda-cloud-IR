@@ -56,6 +56,7 @@ O Observer desacopla as notificações visuais da lógica de negócio. Quando mo
                                          (Strategy)       (Observer)
 
 ## Estrutura de Arquivos
+
 ```text
 ecofuturo/
 ├── backend/                    → API em Python/FastAPI
@@ -82,7 +83,6 @@ ecofuturo/
 ├── tests/                      → Testes unitários (Vitest + jsdom)
 ├── EcoFuturoEsuda.html         → Backup do monolítico original (não usado)
 └── README.md                   → Este arquivo
-
 ## Tecnologias Utilizadas
 - HTML5 — Estrutura da página (SPA com páginas carregadas via fetch)
 - TailwindCSS (CDN) — Estilização utilitária
