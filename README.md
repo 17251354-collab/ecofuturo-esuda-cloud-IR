@@ -14,6 +14,7 @@ O projeto possui uma arquitetura completa dividida em Front-end e Back-end:
 
 ##Arquitetura e Padrões de Projeto
 A aplicação utiliza 4 padrões de projeto (GoF) na sua estrutura:
+
 🔹 Singleton — SistemaEcofuturo
 O Singleton garante que exista apenas uma única instância da classe SistemaEcofuturo durante toda a execução da aplicação. Toda a lógica de negócio, estado dos usuários e regras de pontuação são gerenciados por essa instância única.
 - Conecta-se ao Supabase (PostgreSQL) para persistência de dados
