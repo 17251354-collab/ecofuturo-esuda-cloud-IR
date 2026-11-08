@@ -56,7 +56,6 @@ O Observer desacopla as notificações visuais da lógica de negócio. Quando mo
                                          (Strategy)       (Observer)
 
 ## Estrutura de Arquivos
-
 ```text
 ecofuturo/
 ├── backend/                    → API em Python/FastAPI
@@ -93,6 +92,7 @@ ecofuturo/
 - Google Fonts (Inter) — Tipografia
 - Vitest + jsdom — Testes unitários
 - Python + FastAPI — Back-end e regras de negócio
+
 
 ## Funcionalidades
 
