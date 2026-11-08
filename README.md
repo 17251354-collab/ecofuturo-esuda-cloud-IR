@@ -53,6 +53,7 @@ O Observer desacopla as notificações visuais da lógica de negócio. Quando mo
                                          (Strategy)       (Observer)
 
 ## Estrutura de Arquivos
+```text
 ecofuturo/
 ├── backend/                    → API em Python/FastAPI
 ├── index.html                  → SPA base (auth modal, headers, containers)
