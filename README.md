@@ -42,7 +42,6 @@ O Observer desacopla as notificações visuais da lógica de negócio. Quando mo
 - CoinAnimationObserver — Mostra animação flutuante de moedas ganhas
 
 ### Fluxo de Dados
-```text
 +----------+      +------------------+      +--------------------+      +----------+
 |  app.js  | ---> | EcofuturoFacade  | ---> | SistemaEcofuturo   | ---> | Supabase |
 |   (UI)   |      |   (Interface)    |      |   (Singleton)      |      |   (DB)   |
