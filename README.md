@@ -218,6 +218,7 @@ O **Supabase** atua como nosso *Backend as a Service*. Ele fornece toda a infrae
 ### 🔮 Render (Futuro)
 
 O Render hospedará a API em Python (FastAPI). Com isso, a documentação interativa (Swagger UI) ficará exposta publicamente para integração com qualquer aplicação cliente.
+
 ---
 
 ## Como Executar (Local)
