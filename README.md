@@ -82,7 +82,6 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
 
 ## 📂 Estrutura de Arquivos
 
-```text
 ecofuturo/
 ├── backend/                    → API em Python/FastAPI (Hospedada no Render)
 │   ├── app/                    → Routers, schemas e regras de negócio
