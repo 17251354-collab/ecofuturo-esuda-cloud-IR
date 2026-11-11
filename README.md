@@ -205,7 +205,8 @@ O front-end (site) está hospedado no **Netlify**, uma das plataformas mais mode
 
 O **Supabase** atua como nosso *Backend as a Service*. Ele fornece toda a infraestrutura de banco de dados PostgreSQL na nuvem, além do sistema de autenticação. Ele conta com backups automáticos e garante que os dados dos usuários, atividades e vouchers estejam sempre seguros e disponíveis.
 
-🚀 Render (PaaS - Hospedagem do Back-end)
+### 🚀 Render (PaaS - Hospedagem do Back-end)
+
 O back-end (API em Python/FastAPI) está oficialmente hospedado e rodando no Render. A plataforma garante a execução contínua das regras de negócio e a segurança da aplicação, trazendo os seguintes benefícios:
 
 * **CI/CD Automatizado:** O Render está integrado diretamente ao GitHub. A cada novo `push` na branch `main`, ele reconstrói a aplicação, instala as dependências (`requirements.txt`) e atualiza a API automaticamente, sem deploys manuais.
@@ -213,8 +214,6 @@ O back-end (API em Python/FastAPI) está oficialmente hospedado e rodando no Ren
 * **Documentação Pública (Swagger UI):** A API expõe automaticamente a documentação OpenAPI, permitindo que qualquer aplicação cliente teste as rotas publicamente.
 * **Link da API:** [https://ecofuturo-esuda-cloud-ir.onrender.com/docs](https://ecofuturo-esuda-cloud-ir.onrender.com/docs)
 * **Plano Free (Hibernação):** Para otimizar custos, o Render "hiberna" a API após 15 minutos de inatividade. A primeira requisição após esse período pode demorar cerca de 50 segundos para "acordar" o servidor (Cold Start), mas depois opera normalmente.
-
-
 ---
 
 ## Como Executar (Local)
