@@ -80,35 +80,26 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
 
 ---
 
-## Estrutura de Arquivos
+## 📂 Estrutura de Arquivos
 
 ```
 ecofuturo/
-├── backend/                    → API em Python/FastAPI
+├── backend/                    → API em Python/FastAPI (Hospedada no Render)
+│   ├── app/                    → Routers, schemas e regras de negócio
+│   └── requirements.txt        → Dependências do Python
 ├── index.html                  → SPA base (auth modal, headers, containers)
-├── styles.css                  → Estilos globais (~370 linhas)
-├── SistemaEcofuturo.js         → Singleton — lógica de negócio + queries Supabase (~1500 linhas)
+├── styles.css                  → Estilos globais (glassmorphism)
+├── SistemaEcofuturo.js         → Singleton — lógica de negócio + queries Supabase
 ├── EcofuturoFacade.js          → Facade — interface simplificada para a UI
-├── app.js                      → Camada de UI — SPA com loadPage(), event delegation (~920 linhas)
-├── server.js                   → Servidor HTTP local (porta 8080, ES modules)
-├── supabase-config.js          → Configuração do cliente Supabase
-├── package.json                → Dependências (Vitest, jsdom)
+├── app.js                      → Camada de UI — SPA com loadPage(), event delegation
+├── supabase-config.js          → Configuração do cliente Supabase (Front-end)
+├── package.json                → Dependências do Front-end (Vitest, jsdom)
 ├── vitest.config.js            → Configuração do Vitest
 ├── strategies/                 → Strategy Pattern (cálculo de moedas/CO₂)
-│   ├── TransportStrategy.js    → Classe base abstrata
-│   ├── BicicletaStrategy.js
-│   ├── CaminhadaStrategy.js
-│   ├── TransportePublicoStrategy.js
-│   └── CarroEletricoStrategy.js
 ├── observers/                  → Observer Pattern (notificações visuais)
-│   ├── Observer.js             → Interface base
-│   ├── ToastObserver.js        → Notificações toast
-│   └── CoinAnimationObserver.js → Animação de moedas
 ├── pages/                      → Páginas carregadas dinamicamente via fetch()
-├── tests/                      → Testes unitários (Vitest + jsdom)
-├── EcoFuturoEsuda.html         → Backup do monolítico original (não usado)
+├── tests/                      → 173 testes unitários (Vitest + jsdom)
 └── README.md                   → Este arquivo
-```
 
 ---
 
