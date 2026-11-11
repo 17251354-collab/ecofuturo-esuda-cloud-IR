@@ -10,7 +10,25 @@ A proposta é transformar práticas sustentáveis do dia a dia — como andar de
 
 ## Arquitetura e Padrões de Projeto
 
-A aplicação utiliza **4 padrões de projeto** (GoF) na sua estrutura:
+O projeto foi evoluído para uma arquitetura Client-Server, dividida em duas camadas: um Front-end (interface do usuário) e um Back-end (API de regras de negócio).
+
+**🔹 Back-end (Python/FastAPI)**
+
+O back-end foi desenvolvido em Python 3.12 com o framework FastAPI, representando um motor de regras de negócio robusto. Ele está 100% funcional e totalmente integrado ao banco de dados Supabase. Atualmente, ele opera de forma independente do site, mas está pronto para ser consumido por qualquer aplicação cliente.
+
+- **Banco de Dados:** Supabase (PostgreSQL).
+- **Segurança:** Autenticação via JWT e criptografia de senhas com Bcrypt.
+- **Documentação:** Swagger UI (OpenAPI) gerado automaticamente.
+- **Validação:** Pydantic.
+- **Requisitos:** 72 requisitos implementados (36 RF, 14 RN, 22 RNF).
+
+**🔹 Front-end (JavaScript)**
+
+A interface visual já está finalizada e hospedada na nuvem (Netlify), comunicando-se diretamente com o Supabase. A aplicação utiliza 4 padrões de projeto (GoF) na sua estrutura:
+
+**Status de Integração**
+
+O site e a API Python ainda não estão interligados diretamente, mas o Back-end está pronto para ser consumido por qualquer aplicação cliente.
 
 ### 🔹 Singleton — `SistemaEcofuturo`
 
@@ -62,52 +80,27 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
 
 ---
 
-## Estrutura de Arquivos
-
+## 📂 Estrutura de Arquivos
 ```
 ecofuturo/
+├── backend/                    → API em Python/FastAPI (Hospedada no Render)
+│   ├── app/                    → Routers, schemas e regras de negócio
+│   └── requirements.txt        → Dependências do Python
 ├── index.html                  → SPA base (auth modal, headers, containers)
-├── styles.css                  → Estilos globais (~370 linhas)
-├── SistemaEcofuturo.js         → Singleton — lógica de negócio + queries Supabase (~1500 linhas)
+├── styles.css                  → Estilos globais (glassmorphism)
+├── SistemaEcofuturo.js         → Singleton — lógica de negócio + queries Supabase
 ├── EcofuturoFacade.js          → Facade — interface simplificada para a UI
-├── app.js                      → Camada de UI — SPA com loadPage(), event delegation (~920 linhas)
-├── server.js                   → Servidor HTTP local (porta 8080, ES modules)
-├── supabase-config.js          → Configuração do cliente Supabase
-├── package.json                → Dependências (Vitest, jsdom)
+├── app.js                      → Camada de UI — SPA com loadPage(), event delegation
+├── supabase-config.js          → Configuração do cliente Supabase (Front-end)
+├── package.json                → Dependências do Front-end (Vitest, jsdom)
 ├── vitest.config.js            → Configuração do Vitest
 ├── strategies/                 → Strategy Pattern (cálculo de moedas/CO₂)
-│   ├── TransportStrategy.js    → Classe base abstrata
-│   ├── BicicletaStrategy.js
-│   ├── CaminhadaStrategy.js
-│   ├── TransportePublicoStrategy.js
-│   └── CarroEletricoStrategy.js
 ├── observers/                  → Observer Pattern (notificações visuais)
-│   ├── Observer.js             → Interface base
-│   ├── ToastObserver.js        → Notificações toast
-│   └── CoinAnimationObserver.js → Animação de moedas
 ├── pages/                      → Páginas carregadas dinamicamente via fetch()
-│   ├── landing.html            → Página inicial (público)
-│   ├── dashboard.html          → Dashboard do usuário
-│   ├── catalog.html            → Catálogo de benefícios
-│   ├── resgate.html            → Meus resgates / vouchers / transferências
-│   ├── reports.html            → Relatórios pessoais e da comunidade
-│   ├── ranking.html            → Ranking de usuários
-│   ├── missoes.html            → Missões, medalhas e desafios
-│   ├── notificacoes.html       → Notificações e mensagens
-│   ├── admin-users.html        → Gerenciar usuários (admin)
-│   └── admin-partners.html     → Gerenciar parceiros e benefícios (admin)
-├── tests/                      → Testes unitários (Vitest + jsdom)
-│   ├── setup.js                → Mock do Supabase com fila de respostas
-│   ├── strategies.test.js      → 24 testes (4 estratégias × 6 cenários)
-│   ├── observers.test.js       → 14 testes (Toast + CoinAnimation)
-│   ├── SistemaEcofuturo.test.js→ 119 testes (Singleton, login, CRUD, Fase 3, Fase 4)
-│   ├── EcofuturoFacade.test.js → 10 testes (delegação da Facade)
-│   └── smoke.test.js           → 6 testes (importação de módulos)
-├── EcoFuturoEsuda.html         → Backup do monolítico original (não usado)
+├── tests/                      → 173 testes unitários (Vitest + jsdom)
 └── README.md                   → Este arquivo
-```
-
 ---
+```
 
 ## Tecnologias Utilizadas
 
@@ -193,10 +186,32 @@ Novos usuários podem ser criados pela tela de cadastro ou pelo painel administr
 
 ---
 
-## 🌐 Deploy
+## 🌐 Deploy e Nuvem
 
-Acesse a aplicação online: [**ecofuturoesuda.netlify.app**](https://ecofuturoesuda.netlify.app/)
+A arquitetura do projeto foi pensada para a nuvem, garantindo alta disponibilidade, segurança e escalabilidade.
 
+### 🚀 Netlify (PaaS - Hospedagem do Front-end)
+
+O front-end (site) está hospedado no Netlify, uma das plataformas mais modernas do mercado para aplicações web. A escolha do Netlify traz benefícios essenciais para o projeto:
+
+* **CI/CD Automatizado (Integração e Entrega Contínuas):** O Netlify está conectado diretamente ao repositório do GitHub. Toda vez que uma nova atualização de código é enviada (via push), a plataforma detecta, compila e publica a nova versão do site automaticamente em poucos segundos, sem a necessidade de deploys manuais.
+* **CDN Global:** Os arquivos do site são distribuídos em servidores (Edge Network) espalhados pelo mundo. Isso significa que, independentemente de onde o usuário esteja, o site carregará de forma extremamente rápida, a partir do servidor mais próximo.
+* **HTTPS Seguro:** A plataforma gerencia e renova automaticamente os certificados de segurança (SSL), garantindo que o site seja sempre acessado via conexão criptografada (https://).
+* **Rollbacks Fáceis:** Caso uma atualização apresente erro, é possível reverter o site para uma versão anterior com apenas um clique.
+* **Acesse a aplicação online:** [https://ecofuturoesuda.netlify.app](https://ecofuturoesuda.netlify.app)
+### 🗄️ Supabase (BaaS - Banco de Dados)
+
+O **Supabase** atua como nosso *Backend as a Service*. Ele fornece toda a infraestrutura de banco de dados PostgreSQL na nuvem, além do sistema de autenticação. Ele conta com backups automáticos e garante que os dados dos usuários, atividades e vouchers estejam sempre seguros e disponíveis.
+
+### 🚀 Render (PaaS - Hospedagem do Back-end)
+
+O back-end (API em Python/FastAPI) está oficialmente hospedado e rodando no Render. A plataforma garante a execução contínua das regras de negócio e a segurança da aplicação, trazendo os seguintes benefícios:
+
+* **CI/CD Automatizado:** O Render está integrado diretamente ao GitHub. A cada novo `push` na branch `main`, ele reconstrói a aplicação, instala as dependências (`requirements.txt`) e atualiza a API automaticamente, sem deploys manuais.
+* **Variáveis de Ambiente Seguras:** Credenciais sensíveis (como as chaves do Supabase e o `SECRET_KEY`) não ficam expostas no código. Elas são configuradas de forma segura no painel do Render.
+* **Documentação Pública (Swagger UI):** A API expõe automaticamente a documentação OpenAPI, permitindo que qualquer aplicação cliente teste as rotas publicamente.
+* **Link da API:** [https://ecofuturo-esuda-cloud-ir.onrender.com/docs](https://ecofuturo-esuda-cloud-ir.onrender.com/docs)
+* **Plano Free (Hibernação):** Para otimizar custos, o Render "hiberna" a API após 15 minutos de inatividade. A primeira requisição após esse período pode demorar cerca de 50 segundos para "acordar" o servidor (Cold Start), mas depois opera normalmente.
 ---
 
 ## Como Executar (Local)
@@ -242,13 +257,14 @@ npm run test:coverage
 
 ## Banco de Dados (Supabase)
 
-O projeto utiliza **Supabase** como backend:
+O projeto utiliza o **Supabase** como infraestrutura de banco de dados e autenticação (BaaS):
+
 - **Autenticação:** Supabase Auth (email/senha, confirmação de email desativada)
 - **Banco:** PostgreSQL com tabelas: `usuario`, `parceiro`, `beneficio`, `atividade`, `emissao_co2`, `conversao_moedas`, `moeda`, `resgate`, `voucher`, `notificacao`, `mensagem`
 - **RLS:** Liberado para todas as operações (anon key)
 - **Trigger:** `on_resgate_insert` cria voucher + movimentação SAIDA na tabela `moeda`
 
-A conexão é feita via `supabase-config.js` usando a anon key do projeto.
+**Conexão Atual:** O Front-end (site) conecta-se diretamente ao banco via `supabase-config.js` usando a anon key do projeto. A API em Python (Back-end) também possui sua própria integração segura com este mesmo banco de dados.
 
 ---
 
@@ -277,4 +293,4 @@ A conexão é feita via `supabase-config.js` usando a anon key do projeto.
 
 ## Autores
 
-**Igor Philipo / João Vinícius / Kamylle / Roseli** — Faculdade ESUDA
+**Igor Philipo Silva /  kamylle da Silva Alves de Almeida / Roseli Maria do Nascimento — Faculdade ESUDA
