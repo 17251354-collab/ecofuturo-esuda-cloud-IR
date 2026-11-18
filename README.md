@@ -194,11 +194,11 @@ A arquitetura do projeto foi pensada para a nuvem, garantindo alta disponibilida
 
 O front-end (site) está hospedado no Netlify, uma das plataformas mais modernas do mercado para aplicações web. A escolha do Netlify traz benefícios essenciais para o projeto:
 
-* **CI/CD Automatizado (Integração e Entrega Contínuas):** O Netlify está conectado diretamente ao repositório do GitHub. Toda vez que uma nova atualização de código é enviada (via push), a plataforma detecta, compila e publica a nova versão do site automaticamente em poucos segundos, sem a necessidade de deploys manuais.
-* **CDN Global:** Os arquivos do site são distribuídos em servidores (Edge Network) espalhados pelo mundo. Isso significa que, independentemente de onde o usuário esteja, o site carregará de forma extremamente rápida, a partir do servidor mais próximo.
-* **HTTPS Seguro:** A plataforma gerencia e renova automaticamente os certificados de segurança (SSL), garantindo que o site seja sempre acessado via conexão criptografada (https://).
-* **Rollbacks Fáceis:** Caso uma atualização apresente erro, é possível reverter o site para uma versão anterior com apenas um clique.
-* **Acesse a aplicação online:** [https://ecofuturoesuda.netlify.app](https://ecofuturoesuda.netlify.app)
+*   **Hospedagem Estática em Nuvem (PaaS):** O Netlify atua como um provedor de infraestrutura para aplicações front-end, eliminando a necessidade de configurar e gerenciar servidores web tradicionais.
+*   **CDN Global:** Os arquivos do site são distribuídos em servidores (Edge Network) espalhados pelo mundo. Isso significa que, independentemente de onde o usuário esteja, o site carregará de forma extremamente rápida, a partir do servidor mais próximo.
+*   **HTTPS Seguro:** A plataforma gerencia e renova automaticamente os certificados de segurança (SSL), garantindo que o site seja sempre acessado via conexão criptografada (https://).
+*   **Acesse a aplicação online:** [https://ecofuturoesuda.netlify.app](https://ecofuturoesuda.netlify.app)
+
 ### 🗄️ Supabase (BaaS - Banco de Dados)
 
 O **Supabase** atua como nosso *Backend as a Service*. Ele fornece toda a infraestrutura de banco de dados PostgreSQL na nuvem, além do sistema de autenticação. Ele conta com backups automáticos e garante que os dados dos usuários, atividades e vouchers estejam sempre seguros e disponíveis.
