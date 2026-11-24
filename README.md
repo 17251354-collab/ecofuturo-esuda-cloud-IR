@@ -121,7 +121,7 @@ ecofuturo/
 
 | Funcionalidade | Descrição |
 |---|---|
-| **Cadastro e Login** | Criação de conta com nome, e-mail, senha e tipo (aluno, professor, funcionário, comunidade externa) |
+| **Cadastro e Login** |Criação de conta com nome, e-mail, senha e perfil. Alunos, professores e funcionários ESUDA devem utilizar obrigatoriamente o e-mail institucional (@esuda.edu.br), enquanto a comunidade externa realiza o cadastro com e-mail pessoal. |
 | **Registro de Atividades** | Registro de deslocamentos sustentáveis com tipo de transporte, distância, duração e data |
 | **Ganho de Moedas** | Moedas calculadas automaticamente com base no transporte e distância |
 | **Catálogo de Benefícios** | Visualização e reserva de recompensas (EcoBag, café, ingressos, descontos, etc.) |
