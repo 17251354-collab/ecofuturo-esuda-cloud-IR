@@ -100,6 +100,7 @@ ecofuturo/
 ├── tests/                      → 173 testes unitários (Vitest + jsdom)
 └── README.md                   → Este arquivo
 ---
+---
 ```
 
 ## Tecnologias Utilizadas
