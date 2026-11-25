@@ -28,7 +28,7 @@ A interface visual já está finalizada e hospedada na nuvem (Netlify), comunica
 
 **Status de Integração**
 
-O site e a API Python ainda não estão interligados diretamente, mas o Back-end está pronto para ser consumido por qualquer aplicação cliente.
+O projeto adota uma arquitetura desacoplada (Multi-Cloud). O **Front-end (Site)** está hospedado e operando em produção na Netlify, atuando como a interface principal do usuário e comunicando-se diretamente com o banco de dados Supabase via SDK JavaScript. O **Back-end (API Python)** também está em produção no Render (com CI/CD configurado) e conectado ao mesmo banco. Dessa forma, o site atende os usuários finais de forma independente, e a API atua como um serviço REST autônomo, devidamente documentada e funcional.
 
 ### 🔹 Singleton — `SistemaEcofuturo`
 
