@@ -102,6 +102,7 @@ ecofuturo/
 └── README.md                   → Este arquivo
 ---
 ```
+```
 
 ## Tecnologias Utilizadas
 
