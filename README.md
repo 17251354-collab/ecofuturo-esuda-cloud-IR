@@ -61,9 +61,9 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
 - `ToastObserver` — Exibe notificações toast no canto inferior direito
 - `CoinAnimationObserver` — Mostra animação flutuante de moedas ganhas
 
-### Fluxo de Dados
+### 📊 Fluxo de Dados
 
-```
+```text
 ┌──────────┐      ┌──────────────────┐      ┌────────────────────┐      ┌──────────┐
 │  app.js  │ ───▶ │ EcofuturoFacade  │ ───▶ │ SistemaEcofuturo   │ ───▶ │ Supabase │
 │   (UI)   │      │   (Interface)    │      │   (Singleton)      │      │   (DB)   │
@@ -74,36 +74,37 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
                                          strategies/      observers/
                                          (Strategy)       (Observer)
 ```
-**Status de Integração**
+
+### 🔄 Status de Integração
 
 O projeto adota uma arquitetura desacoplada (Multi-Cloud). O **Front-end (Site)** está hospedado e operando em produção na Netlify, atuando como a interface principal do usuário e comunicando-se diretamente com o banco de dados Supabase via SDK JavaScript. O **Back-end (API Python)** também está em produção no Render (com CI/CD configurado) e conectado ao mesmo banco. Dessa forma, o site atende os usuários finais de forma independente, e a API atua como um serviço REST autônomo, devidamente documentada e funcional.
-```
 
 ---
 
 ## 📂 Estrutura de Arquivos
+
 ```text
-ecofuturo/
+ecofuturo-esuda-cloud-IR/
 ├── backend/                    → API em Python/FastAPI (Hospedada no Render)
 │   ├── app/                    → Routers, schemas e regras de negócio
 │   └── requirements.txt        → Dependências do Python
+├── observers/                  → Observer Pattern (notificações visuais)
+├── pages/                      → Páginas carregadas dinamicamente via fetch()
+├── strategies/                 → Strategy Pattern (cálculo de moedas/CO₂)
+├── tests/                      → 173 testes unitários (Vitest + jsdom)
 ├── index.html                  → SPA base (auth modal, headers, containers)
 ├── styles.css                  → Estilos globais (glassmorphism)
 ├── SistemaEcofuturo.js         → Singleton — lógica de negócio + queries Supabase
 ├── EcofuturoFacade.js          → Facade — interface simplificada para a UI
 ├── app.js                      → Camada de UI — SPA com loadPage(), event delegation
 ├── supabase-config.js          → Configuração do cliente Supabase (Front-end)
+├── server.js                   → Servidor Node.js local/auxiliar
 ├── package.json                → Dependências do Front-end (Vitest, jsdom)
 ├── vitest.config.js            → Configuração do Vitest
-├── strategies/                 → Strategy Pattern (cálculo de moedas/CO₂)
-├── observers/                  → Observer Pattern (notificações visuais)
-├── pages/                      → Páginas carregadas dinamicamente via fetch()
-├── tests/                      → 173 testes unitários (Vitest + jsdom)
 └── README.md                   → Este arquivo
+```
+
 ---
-```
-```
-```
 
 ## Tecnologias Utilizadas
 
