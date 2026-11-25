@@ -108,6 +108,7 @@ ecofuturo/
 - **TailwindCSS (CDN)** — Estilização utilitária
 - **CSS customizado (styles.css)** — Animações, glassmorphism e estilos complementares
 - **JavaScript (ES Modules)** — Singleton + Facade + Strategy + Observer + SPA com event delegation
+- **Python + FastAPI** — API REST no back-end (hospedada no Render)
 - **Supabase** — Banco de dados PostgreSQL + Autenticação (email/senha, confirmação desativada)
 - **Chart.js** — Gráficos de relatórios
 - **Google Fonts (Inter)** — Tipografia
