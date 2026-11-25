@@ -26,9 +26,6 @@ O back-end foi desenvolvido em Python 3.12 com o framework FastAPI, representand
 
 A interface visual já está finalizada e hospedada na nuvem (Netlify), comunicando-se diretamente com o Supabase. A aplicação utiliza 4 padrões de projeto (GoF) na sua estrutura:
 
-**Status de Integração**
-
-O projeto adota uma arquitetura desacoplada (Multi-Cloud). O **Front-end (Site)** está hospedado e operando em produção na Netlify, atuando como a interface principal do usuário e comunicando-se diretamente com o banco de dados Supabase via SDK JavaScript. O **Back-end (API Python)** também está em produção no Render (com CI/CD configurado) e conectado ao mesmo banco. Dessa forma, o site atende os usuários finais de forma independente, e a API atua como um serviço REST autônomo, devidamente documentada e funcional.
 
 ### 🔹 Singleton — `SistemaEcofuturo`
 
@@ -76,6 +73,10 @@ O **Observer** desacopla as notificações visuais da lógica de negócio. Quand
                                                ▼               ▼
                                          strategies/      observers/
                                          (Strategy)       (Observer)
+```
+**Status de Integração**
+
+O projeto adota uma arquitetura desacoplada (Multi-Cloud). O **Front-end (Site)** está hospedado e operando em produção na Netlify, atuando como a interface principal do usuário e comunicando-se diretamente com o banco de dados Supabase via SDK JavaScript. O **Back-end (API Python)** também está em produção no Render (com CI/CD configurado) e conectado ao mesmo banco. Dessa forma, o site atende os usuários finais de forma independente, e a API atua como um serviço REST autônomo, devidamente documentada e funcional.
 ```
 
 ---
